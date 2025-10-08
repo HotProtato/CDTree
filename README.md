@@ -30,14 +30,14 @@ The forest model builds a multitude of these trees on different subsets of the d
 
 The core of the causal discovery tree lies in its splitting criterion, which aims to identify splits that maximize the causal impact. For each potential split on a feature, the algorithm calculates a score based on the gains in impurity for all other features.
 
-Let $G_{pos}$ be the sum of positive gains and $G_{neg}$ be the sum of absolute negative gains across all other features for a given split:
+Let $G_{pos}$ be the sum of positive gains and $G_{neg}$ be the sum of absolute negative gains across all *other* features (i.e., excluding the splitting feature $F_{split}$) for a given split:
 
 $$
-G_{pos} = \sum_{i \text{ s.t. } Gain_i > 0} Gain_i
+G_{pos} = \sum_{i \neq F_{split} \text{ s.t. } Gain_i > 0} Gain_i
 $$
 
 $$
-G_{neg} = \sum_{i \text{ s.t. } Gain_i < 0} |Gain_i|
+G_{neg} = \sum_{i \neq F_{split} \text{ s.t. } Gain_i < 0} |Gain_i|
 $$
 
 The splitting score for a candidate split is then calculated as:
@@ -64,13 +64,19 @@ The impurity measure used depends on the feature type:
 
 ### Installation
 
-To use this framework, you can install the dependencies listed in the `pyproject.toml` file.
+To use this framework, you can install the dependencies directly from the `pyproject.toml` file or by cloning the repository.
 
 ```bash
-pip install -r requirements.txt # Or use a virtual environment
+# To install dependencies from pyproject.toml
+pip install .
+
+# Alternatively, clone the repository
+# git clone https://github.com/your-repo/CDTree.git
+# cd CDTree
+# pip install .
 ```
 
-*Note: You may need to create a `requirements.txt` file from `pyproject.toml` or install the dependencies manually if you are not using a build system like setuptools.* 
+I might release on PyPI pending further testing of this project.
 
 ### Usage
 
