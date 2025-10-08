@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "CDTree"
+version = "0.1.0"
+authors = [
+  { name="Jake"},
+]
+description = "A Python implementation of an unsupervised Causal Discovery Tree (CD-Tree) algorithm."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/hotprotato/cdtree"
+"Bug Tracker" = "https://github.com/hotprotato/cdtree/issues"
