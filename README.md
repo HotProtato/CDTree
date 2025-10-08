@@ -28,6 +28,8 @@ The forest model builds a multitude of these trees on different subsets of the d
 
 ## Splitting Criterion
 
+Note: All x values are represented as Y; the z-score normalized continuous values as their own y values, and categories where (1 - HHI) is their impurity, also known as Gini Impurity.
+
 The core of the causal discovery tree lies in its splitting criterion, which aims to identify splits that maximize the causal impact. For each potential split on a feature, the algorithm calculates a score based on the gains in impurity for all other features.
 
 Let $G_{pos}$ be the sum of positive gains and $G_{neg}$ be the sum of absolute negative gains across all *other* features (i.e., excluding the splitting feature $F_{split}$) for a given split:
